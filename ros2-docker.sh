@@ -1,10 +1,10 @@
 #!/bin/zsh
 
 build() {
-  eval $(ssh-agent) && \
-  ssh-add ~/.ssh/GitHub && \
+  # eval $(ssh-agent) && \
+  # ssh-add ~/.ssh/GitHub && \
   export DOCKER_BUILDKIT=1 && docker build \
-        -t ros2-docker:latest \
+        -t ghcr.io/flo2410/ros2-docker:latest \
         /home/florian/syncthing/Development/ros/ros2-docker/
         #--build-arg CACHEBUST=$(date +%s) \
         # --ssh default=$(echo $SSH_AUTH_SOCK) \
@@ -36,7 +36,7 @@ run() {
     --name=ros2-docker \
     --hostname=ros2-docker \
     --ipc=host \
-    ros2-docker:latest
+    ghcr.io/flo2410/ros2-docker:latest
    # --device=/dev/ttyUSB0 \
 }
 

@@ -33,7 +33,8 @@ ENV USER=ros
 RUN mkdir -p ~/.ssh && ssh-keyscan -T 10 github.com >> ~/.ssh/known_hosts
 
 # setup dotfiles
-RUN --mount=type=ssh,required=true,mode=0666 git clone git@github.com:Flo2410/dotfiles.git --recurse-submodules ~/dotfiles && \
+# RUN --mount=type=ssh,required=true,mode=0666 git clone git@github.com:Flo2410/dotfiles.git --recurse-submodules ~/dotfiles && \
+RUN git clone https://github.com/Flo2410/dotfiles.git --recurse-submodules ~/dotfiles && \
     cd ~/dotfiles && \
     ./install-profile mjölnir
 

@@ -4,10 +4,10 @@ build() {
   eval $(ssh-agent) && \
   ssh-add ~/.ssh/GitHub && \
   export DOCKER_BUILDKIT=1 && docker build \
-        --ssh default=$(echo $SSH_AUTH_SOCK) \
         -t ros2-docker:latest \
         /home/florian/syncthing/Development/ros/ros2-docker/
         #--build-arg CACHEBUST=$(date +%s) \
+        # --ssh default=$(echo $SSH_AUTH_SOCK) \
 }
 
 run() {

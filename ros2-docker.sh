@@ -35,7 +35,6 @@ run() {
     --network=host \
     --name=ros2-docker \
     --hostname=ros2-docker \
-    --ipc=host \
     ghcr.io/flo2410/ros2-docker:latest
    # --device=/dev/ttyUSB0 \
 }

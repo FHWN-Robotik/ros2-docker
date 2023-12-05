@@ -1,0 +1,44 @@
+   {
+     "image": "ghcr.io/flo2410/ros2-docker:latest",
+     "remoteUser": "ros",
+     "runArgs": [
+       "--volume=/run/desktop/mnt/host/wslg/.X11-unix:/tmp/.X11-unix",
+       "--volume=/run/desktop/mnt/host/wslg:/mnt/wslg",
+       "--security-opt=apparmor:unconfined",
+       "--security-opt=seccomp:unconfined",
+       "--ipc=host",
+       "--network=host",
+       "--name=ros2-docker",
+       "--hostname=ros2-docker"
+       // "--device=/dev/ttyACM0" // This is how to mount a device
+     ],
+     "containerEnv": {
+       "DISPLAY": ":0",
+       "WAYLAND_DISPLAY": "wayland-0",
+       "XDG_RUNTIME_DIR": "/mnt/wslg/runtime-dir",
+       "PULSE_SERVER": "/mnt/wslg/PulseServer",
+       "LIBGL_ALWAYS_SOFTWARE": "1", // Needed for software rendering of opengl
+       "PYTHONWARNINGS": "ignore:setup.py install is deprecated::setuptools.command.install", // disabel deprecation warning
+       "ROS_DOMAIN": "0" // Set the ROS Domain used by the robot
+     },
+     "customizations": {
+       "vscode": {
+         "extensions": [
+           "althack.ament-task-provider",
+           "betwo.b2-catkin-tools",
+           "DotJoshJohnson.xml",
+           "ms-azuretools.vscode-docker",
+           "ms-iot.vscode-ros",
+           "ms-python.python",
+           "ms-vscode.cpptools",
+           "redhat.vscode-yaml",
+           "smilerobotics.urdf",
+           "streetsidesoftware.code-spell-checker",
+           "twxs.cmake",
+           "yzhang.markdown-all-in-one",
+           "zachflower.uncrustify",
+           "ms-vscode.cmake-tools"
+         ]
+       }
+     }
+   }

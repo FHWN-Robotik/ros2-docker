@@ -19,7 +19,7 @@
        "PULSE_SERVER": "/mnt/wslg/PulseServer",
        "LIBGL_ALWAYS_SOFTWARE": "1", // Needed for software rendering of opengl
        "PYTHONWARNINGS": "ignore:setup.py install is deprecated::setuptools.command.install", // disabel deprecation warning
-       "ROS_DOMAIN": "0" // Set the ROS Domain used by the robot
+       "ROS_DOMAIN_ID": "0" // Set the ROS Domain used by the robot
      },
      "customizations": {
        "vscode": {

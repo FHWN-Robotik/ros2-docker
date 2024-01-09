@@ -23,10 +23,10 @@ run() {
   pwd_name=${pwd_name:-/}        # to correct for the case where PWD=/
 
   docker run --rm -d -i \
-    -v $PWD:/pwd/$pwd_name --cap-add=SYS_PTRACE \
+    -v $PWD:/workspace/$pwd_name --cap-add=SYS_PTRACE \
     -v /home/florian/syncthing/Development/ros/ros2-docker/home/.zsh_history:/home/ros/.zsh_history \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -w /pwd/$pwd_name \
+    -w /workspace/$pwd_name \
     -e DISPLAY \
     -e ROS_DOMAIN=$ROS_DOMAIN \
     --security-opt=apparmor:unconfined \

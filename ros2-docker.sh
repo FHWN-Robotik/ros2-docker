@@ -1,14 +1,14 @@
 #!/bin/zsh
 
-build() {
-  # eval $(ssh-agent) && \
-  # ssh-add ~/.ssh/GitHub && \
-  export DOCKER_BUILDKIT=1 && docker build \
-        -t ghcr.io/flo2410/ros2-docker:latest \
-        /home/florian/syncthing/Development/ros/ros2-docker/
-        #--build-arg CACHEBUST=$(date +%s) \
-        # --ssh default=$(echo $SSH_AUTH_SOCK) \
-}
+# build() {
+#   # eval $(ssh-agent) && \
+#   # ssh-add ~/.ssh/GitHub && \
+#   export DOCKER_BUILDKIT=1 && docker build \
+#         -t ghcr.io/FHWN-Robotik/ros2-docker:latest \
+#         /home/florian/syncthing/Development/ros/ros2-docker/
+#         #--build-arg CACHEBUST=$(date +%s) \
+#         # --ssh default=$(echo $SSH_AUTH_SOCK) \
+# }
 
 run() {
   #xhost local:root
@@ -24,7 +24,6 @@ run() {
 
   docker run --rm -d -i \
     -v $PWD:/workspace/$pwd_name --cap-add=SYS_PTRACE \
-    -v /home/florian/syncthing/Development/ros/ros2-docker/home/.zsh_history:/home/ros/.zsh_history \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -w /workspace/$pwd_name \
     -e DISPLAY \
@@ -35,7 +34,7 @@ run() {
     --network=host \
     --name=ros2-docker \
     --hostname=ros2-docker \
-    ghcr.io/flo2410/ros2-docker:latest
+    ghcr.io/FHWN-Robotik/ros2-docker:latest
    # --device=/dev/ttyUSB0 \
 }
 
@@ -58,8 +57,9 @@ if [ "$1" = "run" ]; then
   run
 elif [ "$1" = "build" ]; then
   echo "BUILD!"
-  stop
-  build
+  echo "Not implemented!"
+  # stop
+  # build
 elif [ "$1" = "exec" ]; then
   echo "EXEC!"
   exec_into

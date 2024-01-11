@@ -1,5 +1,5 @@
    {
-     "image": "ghcr.io/flo2410/ros2-docker:latest",
+     "image": "ghcr.io/FHWN-Robotik/ros2-docker:latest",
      "remoteUser": "ros",
      "runArgs": [
        "--volume=/run/desktop/mnt/host/wslg/.X11-unix:/tmp/.X11-unix",

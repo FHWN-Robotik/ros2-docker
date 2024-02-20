@@ -41,7 +41,7 @@ RUN sudo apt-get update && \
     && sudo apt-get clean -y \
     && sudo rm -rf /var/lib/apt/lists/*
 
-RUN echo export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp >> ~/.zshrc && \
+RUN echo export RMW_IMPLEMENTATION=rmw_fastrtps_cpp >> ~/.zshrc && \
     echo source /opt/ros/$ROS_DISTRO/setup.zsh >> ~/.zshrc
 
 ENV DEBIAN_FRONTEND=dialog
